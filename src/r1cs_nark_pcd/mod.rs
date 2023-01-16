@@ -624,4 +624,9 @@ pub mod tests {
         #[cfg(not(ci))]
         crate::tests::test_ivc::<MainField, TestPCD>();
     }
+
+    #[test]
+    pub fn test_pcd() {
+        crate::tests::test_pcd::<MainField, TestPCD>();
+    }
 }
