@@ -62,21 +62,21 @@ where
     E: CurveCycle,
 {
     /// A proof attesting that the R1CS relation of the main circuit holds in the most recent step.
-    pub(crate) main_nark_proof: r1cs_nark::Proof<MainAffine<E>>,
+    pub main_nark_proof: r1cs_nark::Proof<MainAffine<E>>,
 
     /// A proof attesting that the R1CS relation of the help circuit holds in the most recent step.
-    pub(crate) help_nark_proof: r1cs_nark::Proof<HelpAffine<E>>,
+    pub help_nark_proof: r1cs_nark::Proof<HelpAffine<E>>,
 
     /// An accumulator used to determine whether all of the arguments for the main circuit is
     /// verified to be true.
-    pub(crate) main_accumulator: (
+    pub main_accumulator: (
         AccumulatorInstance<MainAffine<E>>,
         AccumulatorWitness<MainField<E>>,
     ),
 
     /// An accumulator used to determine whether all of the arguments for the help circuit is
     /// verified to be true.
-    pub(crate) help_accumulator: (
+    pub help_accumulator: (
         AccumulatorInstance<HelpAffine<E>>,
         AccumulatorWitness<HelpField<E>>,
     ),
