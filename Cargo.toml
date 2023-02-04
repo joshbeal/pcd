@@ -21,14 +21,14 @@ ark-poly = { version = "^0.2.0", default-features = false }
 ark-std = { version = "^0.2.0", default-features = false }
 
 ark-relations = { version = "^0.2.0", default-features = false }
-ark-crypto-primitives = { version = "^0.2.0", default-features = false, features = [ "r1cs" ] }
+ark-crypto-primitives = { git = "https://github.com/joshbeal/crypto-primitives", branch = "joshbeal/accumulation-experimental", default-features = false, features = [ "r1cs" ] }
 
 ark-r1cs-std = { version = "^0.2.0", default-features = false }
 
-ark-nonnative-field = { git = "https://github.com/arkworks-rs/nonnative", default-features = false }
+ark-nonnative-field = { git = "https://github.com/arkworks-rs/nonnative", default-features = false, optional = true, rev = "d57dd4f83f7363e6310526a0a2533e4fc310564b" }
 ark-snark = { version = "^0.2.0", default-features = false }
 
-ark-accumulation = { git = "https://github.com/arkworks-rs/accumulation/", branch = "main", default-features = false, features = [ "r1cs-nark-as", "r1cs" ] }
+ark-accumulation = { git = "https://github.com/joshbeal/accumulation/", branch = "joshbeal/accumulation-experimental", default-features = false, features = [ "r1cs-nark-as", "r1cs" ] }
 ark-sponge = { git = "https://github.com/arkworks-rs/sponge/", branch = "accumulation-experimental", default-features = false, features = [ "r1cs" ] }
 
 ark-ed-on-mnt4-298 = { version = "^0.2.0", default-features = false }
@@ -39,10 +39,8 @@ ark-mnt6-298 = { version = "^0.2.0", default-features = false, features = [ "r1c
 rand_chacha = { version = "0.2.1", default-features = false }
 derivative = { version = "2.0", features = ["use_core"] }
 
-ark-groth16 = { version = "^0.2.0", features = [ "r1cs" ], default-features = false }
-ark-gm17 = { version = "^0.2.0", features = [ "r1cs" ], default-features = false }
-ark-marlin = { git = "https://github.com/arkworks-rs/marlin", branch = "constraints", default-features = false }
-ark-poly-commit = { git = "https://github.com/arkworks-rs/poly-commit", branch = "constraints", default-features = false, features = [ "r1cs" ] }
+ark-groth16 = { git = "https://github.com/joshbeal/groth16", branch = "joshbeal/accumulation-experimental", default-features = false, features = [ "r1cs" ] }
+ark-poly-commit = { git = "https://github.com/joshbeal/poly-commit", branch = "joshbeal/accumulation-experimental", default-features = false, features = [ "r1cs" ] }
 
 tracing = { version = "0.1", default-features = false, features = [ "attributes" ] }
 rayon = { version = "1", optional = true }
@@ -53,8 +51,8 @@ rayon = { version = "1", optional = true }
 
 [features]
 default = [ "std" ]
-std = [ "ark-ff/std", "ark-ec/std", "ark-poly/std", "ark-std/std", "ark-serialize/std", "ark-nonnative-field/std", "ark-poly-commit/std", "ark-nonnative-field/std", "ark-marlin/std", "ark-r1cs-std/std", "ark-relations/std", "ark-groth16/std", "ark-gm17/std" ]
-parallel = [ "std", "ark-ff/parallel", "ark-ec/parallel", "ark-poly/parallel", "ark-std/parallel", "rayon", "ark-marlin/parallel", "ark-poly-commit/parallel" ]
+std = [ "ark-ff/std", "ark-ec/std", "ark-poly/std", "ark-std/std", "ark-serialize/std", "ark-nonnative-field/std", "ark-poly-commit/std", "ark-nonnative-field/std", "ark-r1cs-std/std", "ark-relations/std", "ark-groth16/std" ]
+parallel = [ "std", "ark-ff/parallel", "ark-ec/parallel", "ark-poly/parallel", "ark-std/parallel", "rayon", "ark-poly-commit/parallel" ]
 print-trace = [ "ark-std/print-trace" ]
 
 ###############################################################################
